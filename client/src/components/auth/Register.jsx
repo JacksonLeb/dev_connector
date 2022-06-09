@@ -1,5 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 function Register() {
 
@@ -14,13 +16,13 @@ function Register() {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
     
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
 
         if(password !== password2) {
             console.log("Passwords do not match")
         } else {
-            console.log(formData)
+            console.log('Success')
         }
     }
 
@@ -62,7 +64,7 @@ function Register() {
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
       <p className="my-1">
-        Already have an account? <a href="login.html">Sign In</a>
+        Already have an account? <Link to="/login">Sign In</Link>
       </p>
     </>
   )
